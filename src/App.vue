@@ -36,7 +36,7 @@
     <!-- 获取事件 -->
     <hr>
     <button aid="你好" @click="getEvent($event)">获取事件</button>
-
+     
 
     
   </div>
