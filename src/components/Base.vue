@@ -36,6 +36,13 @@
     <!-- 获取事件 -->
     <hr>
     <button aid="你好" @click="getEvent($event)">获取事件</button>
+    <!-- 父组件传给子组件 -->
+    <hr>
+    <!-- {{mmsg}}
+    <button @click="getData()">父容器按钮</button>
+    {{home.msg}} -->
+    <!-- 子组件从父组件拿值 -->
+    <button @click="getParent()">子组件从父组件拿值</button>
   </div>
 </template>
 <script>
@@ -67,7 +74,15 @@ export default {
       // e.srcElement    dom节点
       e.srcElement.style.background='red'
       console.info(e.srcElement);
+    },
+    getParent(){
+      alert(this.$parent.msg);
     }
+  },
+  props:{
+    "mmsg":String,
+    "getData":Function,
+    "home":Object
   }
 };
 </script>

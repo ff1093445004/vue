@@ -15,10 +15,23 @@
     </ul>
     <hr>
     <button @click="getData()">傻狗</button>
+    <!-- 父子组件传值 -->
+    <hr>
+    <hr>
+    <!-- 父组件传给子组件 -->
+    <!-- <v-base class="box1" :mmsg="msg" :getData="getData" :home="this"></v-base> -->
+    <br>
+    <!-- 父组件从子组件拿 -->
+    <!-- <v-base ref="base"></v-base> -->
+    <!-- <button @click="getBase()">父组件从子组件拿</button> -->
+    <!-- 子组件从父组件拿值 -->
+    <v-base></v-base>
   </div>
 </template>
 <script>
 import storeage from "./model/storeage.js";
+import Base from "./components/Base.vue";
+
 export default {
   name: "app",
   data() {
@@ -59,7 +72,13 @@ export default {
             console.info(error);
           }
         );
+    },
+    getBase(){
+      alert(this.$refs.base.msg);
     }
+  },
+  components:{
+    "v-base": Base
   },
   mounted() {
     var list1 = storeage.get("list");
@@ -77,6 +96,9 @@ export default {
 .box {
   height: 50px;
   width: 100px;
+  background: red;
+}
+.box1 {
   background: red;
 }
 </style>
