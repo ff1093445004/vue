@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="base">
     <!-- 显示值 -->
     <h2>{{msg}}</h2>
     <!-- 循环 -->
